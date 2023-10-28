@@ -264,7 +264,11 @@ static void update_variables(void)
       sample_rate = atoi(var.value);
    }
    else
+#if !defined(SF2000)
       sample_rate = 48000;
+#else
+      sample_rate = 11025;
+#endif
    
    var.value = NULL;
    var.key = "mame2003-cheats";
